@@ -1,11 +1,11 @@
 ---
 title: JSON to CSV gives output or an error for a single JSON object
-type: adversarial
+type: regression
 platforms:
   - web
 start: /json-to-csv
 source: breaker
-status: confirmed
+status: active
 tags:
   - json-to-csv
   - input-abuse
