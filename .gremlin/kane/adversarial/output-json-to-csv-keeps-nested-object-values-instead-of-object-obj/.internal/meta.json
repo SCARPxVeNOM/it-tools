@@ -1,0 +1,18 @@
+{
+  "commit_id": "e3caf3e0-51d7-4674-9e68-a9304282b9e6",
+  "test_id": "0d5ac309-079a-41c0-ba91-7c1594fa16d4",
+  "testcase_id": "01M7WB43FDZGVZAD965V761W4H",
+  "project_id": "01M7Q1C971BFK2HDPEYWC1WGRX",
+  "folder_id": "01M7Q1C9YNWWKDETCT84NYQFG4",
+  "org_id": "3439031",
+  "session_name": "json-to-csv-keeps-nested-object-values-instead-of-object-obj",
+  "executions": [
+    {
+      "execution_id": "b892ab2a-d7f8-4517-83e6-c4b85842162e",
+      "run_kind": "author",
+      "status": "passed",
+      "valid": true,
+      "at": "2026-11-20T11:35:07.879Z"
+    }
+  ]
+}

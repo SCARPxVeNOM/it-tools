@@ -17,7 +17,8 @@ function serializeValue(value: unknown): string {
     return '';
   }
 
-  const valueAsString = String(value).replace(/\n/g, '\\n').replace(/\r/g, '\\r').replace(/"/g, '\\"');
+  const rawValue = typeof value === 'object' ? JSON.stringify(value) : String(value);
+  const valueAsString = rawValue.replace(/\n/g, '\\n').replace(/\r/g, '\\r').replace(/"/g, '\\"');
 
   if (valueAsString.includes(',')) {
     return `"${valueAsString}"`;

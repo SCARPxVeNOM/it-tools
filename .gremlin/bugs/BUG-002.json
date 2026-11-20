@@ -1,0 +1,35 @@
+{
+  "id": "BUG-002",
+  "title": "HTML entity unescape output remains encoded",
+  "origin": "breaker",
+  "status": "rejected",
+  "severity": "high",
+  "confidence": 0.98,
+  "flowId": "adversarial/html-unescape-decodes-common-named-entities-like-copy",
+  "attack": "input.named-entities",
+  "tags": [
+    "html-entities",
+    "input-abuse"
+  ],
+  "failingStep": "Check the expected outcome",
+  "reason": "Checkpoint assertion failed: \"'Your string unescaped' shows \u00a9 2024 Caf\u00e9 \u20ac5.\"",
+  "verdict": {
+    "confirmed": true,
+    "family": "application_issue",
+    "category": "functional_defect",
+    "severity": "major",
+    "confidence": 0.98,
+    "title": "HTML entity unescape output remains encoded",
+    "oneLiner": "The HTML entity unescape tool left the encoded entities in the output instead of converting them to \u00a9, \u00e9, and \u20ac.",
+    "rootCause": "The unescape result did not change the supplied HTML entities into their readable characters.",
+    "suggestion": "Fix the unescape conversion so named entities such as &copy;, &eacute;, and &euro; are decoded before the result is displayed."
+  },
+  "runs": [
+    "RUN-20261120-165515-d115e7"
+  ],
+  "attempts": [],
+  "createdAt": "2026-11-20T11:27:33.920Z",
+  "updatedAt": "2026-11-20T11:31:24.098Z",
+  "credits": 56.76,
+  "rejectedBecause": "By design: IT Tools describes this tool as escaping and unescaping only < > & \" and ', so named entities like &copy; are out of its scope. The attack expected more than the tool promises."
+}

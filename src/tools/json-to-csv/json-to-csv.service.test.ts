@@ -85,5 +85,16 @@ describe('json-to-csv service', () => {
         hello \\\\\\"world\\\\\\",2"
       `);
     });
+
+    it('when a value is an object, it is serialized as JSON', () => {
+      const array = [
+        { a: { city: 'Paris' }, b: 2 },
+      ];
+
+      const csv = convertArrayToCsv({ array });
+
+      expect(csv).toContain('Paris');
+      expect(csv).not.toContain('[object Object]');
+    });
   });
 });
