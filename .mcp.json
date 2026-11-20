@@ -1,0 +1,10 @@
+{
+  "mcpServers": {
+    "gremlin": {
+      "command": "gremlin",
+      "args": [
+        "mcp"
+      ]
+    }
+  }
+}

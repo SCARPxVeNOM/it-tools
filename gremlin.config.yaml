@@ -1,0 +1,50 @@
+# Gremlin: a hostile user, a perfect bug memory, your own agent as the fixer, Kane CLI as the referee.
+# Docs: https://github.com/SCARPxVeNOM/gremlin
+
+app:
+  name: "IT Tools"
+  url: http://localhost:5199
+  start: "npx vite --port 5199 --strictPort"        # Gremlin starts the app with this when it isn't running
+  # reset: POST /__reset              # optional: reset test data before every run
+  production: false                  # Gremlin refuses to run against production
+
+platforms: [web]
+
+# Test accounts. Flows name a persona; secrets come from environment variables, never this file.
+personas: {}
+  # shopper:
+  #   description: A returning customer
+  #   email: ${SHOPPER_EMAIL}
+  #   password: ${SHOPPER_PASSWORD}
+
+agent:
+  name: claude-code                    # claude-code | codex | cursor | gemini | custom | none
+  # command: "my-agent --task-file {prompt_file}"   # for custom
+
+loop:
+  mode: approve            # suggest | approve | autonomous
+  attempts: 3              # fix attempts before Gremlin hands the bug to a human
+
+guard:
+  trigger: [agent-finish, pr]
+  fallback: all            # what to replay when a change touches no mapped area
+  areas: {}
+    # checkout: ["src/app/checkout/**", "src/lib/cart*"]
+
+breaker:
+  scope: []                # areas to attack (empty = everything found)
+  avoid: [admin]
+  categories: [input, timing, navigation, state, accessibility]
+  max_flows: 6
+
+budget:                    # Kane credits
+  per_run: 200
+  per_day: 2000
+  per_bug: 500
+
+protected_paths: []        # files the Fixer may never change, e.g. ["src/payments/**", "migrations/**"]
+
+kane:
+  headless: true
+  max_steps: 40
+  bug_detection: continue
