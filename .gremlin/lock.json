@@ -9,6 +9,11 @@
       "hash": "e8879816cf9b6bff",
       "approvedAt": "2026-11-20T11:36:45.558Z",
       "by": "fixer"
+    },
+    "regression/json-to-csv-gives-output-or-an-error-for-a-single-json-objec": {
+      "hash": "b3255dd274e648fe",
+      "approvedAt": "2026-11-20T11:54:28.960Z",
+      "by": "fixer"
     }
   }
 }

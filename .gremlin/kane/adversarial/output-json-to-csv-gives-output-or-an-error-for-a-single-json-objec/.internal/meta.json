@@ -1,5 +1,5 @@
 {
-  "commit_id": "60475291-b669-437e-91de-969714e4c6bc",
+  "commit_id": "676edb6c-a3d0-43cb-a673-cd4d0c06f41e",
   "test_id": "97949cbc-34ee-410a-9b92-5d117c73c3c6",
   "testcase_id": "01M7WBCGCTGP0NZT06VYTA90DK",
   "project_id": "01M7Q1C971BFK2HDPEYWC1WGRX",
@@ -8,11 +8,11 @@
   "session_name": "json-to-csv-gives-output-or-an-error-for-a-single-json-objec",
   "executions": [
     {
-      "execution_id": "6cf7be63-d17e-48b0-a90a-a4b9898ee01f",
+      "execution_id": "858f6615-2a45-4f18-9518-22436d7253e2",
       "run_kind": "author",
-      "status": "failed",
+      "status": "passed",
       "valid": true,
-      "at": "2026-11-20T11:30:04.690Z"
+      "at": "2026-11-20T11:51:14.195Z"
     }
   ]
 }

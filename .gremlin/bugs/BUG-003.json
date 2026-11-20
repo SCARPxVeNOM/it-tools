@@ -2,10 +2,10 @@
   "id": "BUG-003",
   "title": "JSON-to-CSV silently ignores non-array input",
   "origin": "breaker",
-  "status": "candidate",
+  "status": "fixed",
   "severity": "high",
   "confidence": 0.94,
-  "flowId": "adversarial/json-to-csv-gives-output-or-an-error-for-a-single-json-objec",
+  "flowId": "regression/json-to-csv-gives-output-or-an-error-for-a-single-json-objec",
   "attack": "input.non-array-json",
   "tags": [
     "json-to-csv",
@@ -25,10 +25,32 @@
     "suggestion": "Show a clear message next to the input when the JSON is valid but is not an array, and keep the output blank only while that message is visible."
   },
   "runs": [
-    "RUN-20261120-165733-3950ea"
+    "RUN-20261120-165733-3950ea",
+    "RUN-20261120-172026-4a3ca5"
   ],
-  "attempts": [],
+  "attempts": [
+    {
+      "n": 1,
+      "at": "2026-11-20T11:49:29.693Z",
+      "agent": "claude-code",
+      "promptFile": ".gremlin/bugs/BUG-003/attempt-1.md",
+      "changedFiles": [
+        "src/tools/json-to-csv/json-to-csv.vue"
+      ],
+      "outsideArea": [],
+      "blocked": [],
+      "result": "passed",
+      "durationS": 54.1,
+      "agentSummary": "I fixed the JSON-to-CSV page so a single JSON object now converts to CSV instead of leaving the output blank. I didn't run Gremlin or Kane, as instructed, so the fix is unconfirmed until Gremlin's re-run. ESLint and the unit tests also didn't run because the command wasn't approved.\n\n**Root cause:** The only check on the input was \"is this valid JSON?\", and a single object passes it. The converter then crashed because the input wasn't an array (`array.forEach is not a function`). The page caught that crash and showed empty output, with no error next to the input.\n\n**Change:** In `src/tools/json-to-csv/json-to-csv.vue`, a single object is now treated as a one-row array. Bob's object gives `name,email` / `Bob,bob@example.test`. A second check now shows \"Provided JSON must be an array of objects (or a single object).\" under the input for anything else, such as `42` or `[1,2]`. Invalid JSON still shows the original \"Provided JSON is not valid.\" message.",
+      "runId": "RUN-20261120-172026-4a3ca5",
+      "relatedRuns": [
+        "RUN-20261120-172129-0b6ba8",
+        "RUN-20261120-172253-9bd9d5"
+      ]
+    }
+  ],
   "createdAt": "2026-11-20T11:30:09.990Z",
-  "updatedAt": "2026-11-20T11:30:09.990Z",
-  "credits": 37.79
+  "updatedAt": "2026-11-20T11:54:28.960Z",
+  "credits": 60.24,
+  "fixedAt": "2026-11-20T11:54:28.953Z"
 }
