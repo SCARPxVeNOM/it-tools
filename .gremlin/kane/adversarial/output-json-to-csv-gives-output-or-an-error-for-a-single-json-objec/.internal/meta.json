@@ -1,0 +1,18 @@
+{
+  "commit_id": "60475291-b669-437e-91de-969714e4c6bc",
+  "test_id": "97949cbc-34ee-410a-9b92-5d117c73c3c6",
+  "testcase_id": "01M7WBCGCTGP0NZT06VYTA90DK",
+  "project_id": "01M7Q1C971BFK2HDPEYWC1WGRX",
+  "folder_id": "01M7Q1C9YNWWKDETCT84NYQFG4",
+  "org_id": "3439031",
+  "session_name": "json-to-csv-gives-output-or-an-error-for-a-single-json-objec",
+  "executions": [
+    {
+      "execution_id": "6cf7be63-d17e-48b0-a90a-a4b9898ee01f",
+      "run_kind": "author",
+      "status": "failed",
+      "valid": true,
+      "at": "2026-11-20T11:30:04.690Z"
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "test_id": "fedc828a-7a5f-4517-91cd-68b012d7686b",
+  "project_id": "01M7Q1C971BFK2HDPEYWC1WGRX",
+  "folder_id": "01M7Q1C9YNWWKDETCT84NYQFG4",
+  "org_id": "3439031",
+  "session_name": "eta-calculator-survives-clearing-the-units-per-time-span-box",
+  "commit_id": "b039456a-2a13-4884-8861-e56934e2ca0b",
+  "testcase_id": "01M7WAZRT4ARKDV1KVV4F406FS",
+  "executions": [
+    {
+      "execution_id": "8fb4f166-8c8b-479a-8554-d757008b77c5",
+      "run_kind": "author",
+      "status": "passed",
+      "valid": true,
+      "at": "2026-11-20T11:22:38.858Z"
+    },
+    {
+      "execution_id": "5268ae46-e95b-4739-88d7-3da11894dfc3",
+      "run_kind": "replay",
+      "status": "passed",
+      "valid": true,
+      "at": "2026-11-20T11:36:40.878Z"
+    }
+  ]
+}

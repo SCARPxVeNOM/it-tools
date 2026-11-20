@@ -1,0 +1,34 @@
+{
+  "id": "BUG-003",
+  "title": "JSON-to-CSV silently ignores non-array input",
+  "origin": "breaker",
+  "status": "candidate",
+  "severity": "high",
+  "confidence": 0.94,
+  "flowId": "adversarial/json-to-csv-gives-output-or-an-error-for-a-single-json-objec",
+  "attack": "input.non-array-json",
+  "tags": [
+    "json-to-csv",
+    "input-abuse"
+  ],
+  "failingStep": "Check the expected outcome",
+  "reason": "Checkpoint assertion failed: \"the page does not stay silent: either the CSV output contains Bob and bob@example.test, or a visible message says the input must be an array\"",
+  "verdict": {
+    "confirmed": true,
+    "family": "application_issue",
+    "category": "validation_defect",
+    "severity": "major",
+    "confidence": 0.94,
+    "title": "JSON-to-CSV silently ignores non-array input",
+    "oneLiner": "Entering a JSON object leaves the CSV output empty without telling the user that an array is required.",
+    "rootCause": "The converter received a JSON object rather than an array, but it neither produced CSV nor showed the required validation message.",
+    "suggestion": "Show a clear message next to the input when the JSON is valid but is not an array, and keep the output blank only while that message is visible."
+  },
+  "runs": [
+    "RUN-20261120-165733-3950ea"
+  ],
+  "attempts": [],
+  "createdAt": "2026-11-20T11:30:09.990Z",
+  "updatedAt": "2026-11-20T11:30:09.990Z",
+  "credits": 37.79
+}
